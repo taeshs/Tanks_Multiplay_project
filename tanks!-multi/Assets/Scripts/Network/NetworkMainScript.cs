@@ -29,6 +29,12 @@ public class NetworkMainScript : MonoBehaviour
 
     private static bool isConnected = false;
     // Start is called before the first frame update
+
+    public void Start()
+    {
+        DontDestroyOnLoad(gameObject); 
+    }
+
     public void GetIpText()
     {
         TMP_Text tmp = IPText.GetComponent<TMP_Text>();
@@ -95,6 +101,7 @@ public class NetworkMainScript : MonoBehaviour
     {
         
         byte[] buf = new byte[1024];
+
         int recvBytes;
         while(true)
         {
